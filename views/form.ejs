@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= pageTitle %></title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <header class="main-header">
+            <nav class="main-header__nav">
+                <ul class="main-header__item-list">
+                    <li class="main-header__item"><a class="<%= path === '/home-page' ? 'active' : '' %>" href="/">Home</a></li>
+                    <li class="main-header__item"><a class="<%= path === '/payment-page' ? 'active' : '' %>" href="/payment">Payment</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <form class="form" action="/api/paystack" method="post">
+                <div class="form_field">
+                    <label for="name"> Fullname </label>
+                    <input type="text" name="fullname" id="name">
+                </div>
+                <div class="form_field">
+                    <label for="email"> Eamil </label>
+                    <input type="text" name="email">
+                </div>
+                <div class="form_field">
+                    <label for="email"> Select Amount </label>
+                    <select name="amount" id="amt">
+                        <option value="" disabled>Select Amount</option>
+                        <option value="500">$500</option>
+                        <option value="500">$1,000</option>
+                        <option value="500">$2,000</option>
+                    </select>
+                </div>
+                <button class="btn" type="submit"> Pay Now! </button>
+            </form>
+        </main>
+
+    </body>
+</html>
+
+
+
+
