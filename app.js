@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
 const bp = require('body-parser')
+const _ = require('lodash')
 
 const app = express()
 
@@ -21,6 +22,26 @@ app.set('view engine', 'ejs')
 app.set('views', 'views')
 
 app.use(paymentRouter)
+
+// const response = {
+//     data: [
+//         'check', 'payment', ' service', 'clone', 'backticks'
+//     ],
+//     age: true,
+//     nationality: "nigerian"
+// }
+// const temp = _.pick(response.data, ['check', 'payment', 'service', 'clone'])
+// const temp = _.pick(response.data, ['data', age, nationality])
+// console.log(temp)
+
+// [varied, vari, va, clan] = temp
+// const nemp = {
+//     first: vairied,
+//     sec: vari,
+//     third: va,
+//     fourth: clan
+// }
+// console.log(nemp)
 
 mongoose.connect(mongodb_url)
     .then(result => {

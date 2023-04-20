@@ -8,7 +8,7 @@ const paystack = (req) => {
     const initPayment = (form, cb) => {
         const opt = {
             url: 'https://api.paystack.co/transaction/initialize',
-            Headers: {
+            headers: {
                 authorization: secretKey,
                 'content-type': 'application/json',
                 'cache-control':  'no-cache'
@@ -48,10 +48,17 @@ const paystack = (req) => {
         // this is automatically a get request
     }
     // After payment on Paystack platform, the user is redirected to a callback 
-    // url set on the merchant’s paystack settings page. It comes back with a 
-    // query string of the transaction reference stored in the ref variable in model.
+    // url set on the merchant’s paystack settings page. This callback url comes 
+    // back with a "query" string of the transaction reference stored in the 
+    // reference variable (in model I guess).
 
-    return { initPayment, verifyPayment}
+    // It is on this callback url endpoint that I call the verifyPayment() and make 
+    // a request to paystack with the reference returned. If the request was 
+    // successful, it would return a large object of the transaction containing many 
+    // information about the transaction, like the amount, date, reference, 
+    // payment_type, metadata, etc.
+
+    return { initPayment, verifyPayment }
 }
 
 module.exports = paystack;
