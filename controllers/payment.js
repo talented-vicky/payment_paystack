@@ -65,7 +65,7 @@ exports.confirmPayment = (req, res, next) => {
     // the transaction made.
 
     const ref = req.query.reference
-
+    console.log(ref)
     verifyPayment(ref, (err, body) => {
         if(err){
             console.log(err)
@@ -108,6 +108,7 @@ exports.getReceipt = (req, res, next) => {
                 console.log("No user info found")
                 res.redirect('/error-page')
             }
+            console.log(payer)
             res.redirect('success', {
                 pageTitle: "Payment Success",
                 userInfo: payer
