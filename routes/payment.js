@@ -15,5 +15,5 @@ router.post('/api/paystack', paymentCrl.sendPayment)
 router.get('/api/paystack/callback', paymentCrl.confirmPayment)
 
 router.get('/api/receipt/:receiptId', paymentCrl.getReceipt)
-
+ 
 module.exports = router;

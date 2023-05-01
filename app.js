@@ -23,26 +23,6 @@ app.set('views', 'views')
 
 app.use(paymentRouter)
 
-// const response = {
-//     data: [
-//         'check', 'payment', ' service', 'clone', 'backticks'
-//     ],
-//     age: true,
-//     nationality: "nigerian"
-// }
-// const temp = _.pick(response.data, ['check', 'payment', 'service', 'clone'])
-// const temp = _.pick(response.data, ['data', age, nationality])
-// console.log(temp)
-
-// [varied, vari, va, clan] = temp
-// const nemp = {
-//     first: vairied,
-//     sec: vari,
-//     third: va,
-//     fourth: clan
-// }
-// console.log(nemp)
-
 mongoose.connect(mongodb_url)
     .then(result => {
         app.listen(port_no || 3000, () => {
@@ -50,3 +30,70 @@ mongoose.connect(mongodb_url)
         })
     })
     .catch(err => console.log(err))
+
+
+
+
+    // string = "[{[([([({[]})])])}]"
+    // string_list = list(string)
+    // print(string_list)
+    
+    // countFor = 0
+    // countBack = 0
+    
+    // for check in string_list:
+    //     if check == '[' or check == '{' or check == '(':
+    //         countFor += 1
+    //     elif check == ']' or check == '}' or check == ')':
+    //         countBack += 1
+    //         got_ind = string_list.index(check)
+    //         print(got_ind)
+    //         prev_ind = (2 * countBack) -1
+    //         print(string_list[got_ind], string_list[got_ind - prev_ind])
+    //         if string_list[got_ind] == string_list[got_ind - prev_ind]:
+    //             print('good to go')
+    //         else:
+    //             print('something wrong')
+    
+// path = input()
+// subfolders = path.split(sep="/")
+// subfolder_stack = []
+
+// for name in subfolders:
+//     if name == ".":
+//         pass
+//     elif name == "..":
+//         if subfolder_stack:
+//             subfolder_stack.pop()
+//         else:
+//             pass
+//     elif name == "/":
+//         pass
+//     elif name == "":
+//         pass
+//     else:
+//         subfolder_stack.append(name)
+
+// result = "/"
+// for i in range(0, len(subfolder_stack)):
+//     result += subfolder_stack[i]
+//     if i == len(subfolder_stack) - 1:
+//         pass
+//     else:
+//         result += "/"
+
+// return result
+
+// s = input()  
+// stack = [-1]
+// ans = 0
+// for i in range(len(s)):
+//  if s[i] == "(":
+//     stack.append(i)
+//  else:
+//     if stack and stack[-1]!=-1 and s[stack[-1]] == "(":
+//        stack.pop()
+//        ans = max(ans,i - stack[-1])
+//     else:
+//         stack.append(i)
+// print(ans)

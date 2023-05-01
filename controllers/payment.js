@@ -31,7 +31,7 @@ exports.sendPayment = (req, res, next) => {
     const form = _.pick(req.body, ['fullname', 'email', 'amount'])
     // this is functionally equal to what I have up there
 
-    form.metadat = {
+    form.metadata = {
         fullname: form.fullname
     }
     form.amount *= 100
@@ -80,8 +80,9 @@ exports.confirmPayment = (req, res, next) => {
 
         [reference, amount, email, fullname] = data
         //this is me assigning variables (keys) to the values of the array
-        
+
         // fix bug here
+        
         const payment = new Payment({
             full_name: fullname,
             email: email,
